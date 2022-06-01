@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="pyscriptstylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+<meta charset="UTF-8"/>
+<title>Calculadora online de médias</title>
+<link rel="stylesheet" href="./main.css">
+<style></style>
+</head>
+<body text="black" bgcolor="gray">
+    <center><h1 class="titulo" >-relação de Médias-</h1></center>
+    <center><table border="1" cellspacing="5" bgcolor="white">
+        <tr>
+            <th rowspan="8">Nome</th>
+            <th colspan="5">Média Por Bimestre</th>
+        </tr>
+        <tr>
+            <th>Português-1</th>
+            <th>Matemática-1</th>
+            <th>História-1</th>
+            <th>Inglês-1</th>
+        </tr>
+        <tr>
+            <td><input type="text" id="aaa"></td>
+            <td><input type="text" id="aab"></td>
+            <td><input type="text" id="aac"></td>
+            <td><input type="text" id="aad"></td>
+        </tr>
+        <tr> 
+            <th>Português-2</th>
+            <th>Matemática-2</th>
+            <th>História-2</th>
+            <th>Inglês-2</th>
+        </tr>
+        <tr>
+            <td><input type="text" id="baa"></td>
+            <td><input type="text" id="bab"></td>
+            <td><input type="text" id="bac"></td>
+            <td><input type="text" id="bad"></td>
+        </tr>
+        <tr> 
+            <th>Português-3</th>
+            <th>Matemática-3</th>
+            <th>História-3</th>
+            <th>Inglês-3</th>
+        </tr>
+        <tr>
+            <td><input type="text" id="caa"></td>
+            <td><input type="text" id="cab"></td>
+            <td><input type="text" id="cac"></td>
+            <td><input type="text" id="cad"></td>
+        </tr>
+        <tr> 
+            <th>Português-4</th>
+            <th>Matemática-4</th>
+            <th>História-4</th>
+            <th>Inglês-4</th>
+        </tr>
+        <tr>
+            <td><input type="text" id="aae"></td> <!-- caixa que vai mudar / caixa de nome -->
+            <td><input type="text" id="daa"></td>
+            <td><input type="text" id="dab"></td>
+            <td><input type="text" id="dac"></td>
+            <td><input type="text" id="dad"></td>
+        </tr>
+        <tr>
+            <th colspan="5" height="30">
+            <input id="media" type="submit" value="Calcular" pys-onClick="media"></th>
+        </tr>    
+    </table>
+    <br>
+    <table border="1" cellspacing="5" bgcolor="white" 
+           height="100" width="500" cellpadding="5" id="TableScore">
+        <caption><b class="titulo"><font size="6">resultado</font></b></caption>
+        <tr>
+            <th width="180">Nome</th>
+            <th>Português</th>
+            <th>Matemática</th>
+            <th>História</th>
+            <th>Inglês</th>
+        </tr>
+        <tr>
+            <td><output type="text" id="nome"></td>
+            <td><output type="text" id="port"></td>
+            <td><output type="text" id="mat"></td>
+            <td><output type="text" id="hist"></td>
+            <td><output type="text" id="ing"></td>
+        </tr>
+          
+    </table>
+    </center>
+    <py-script>
+
+nome = Element("nome")
+port = Element("port")
+mat = Element("mat")
+hist = Element("hist")
+ing = Element("ing")
+
+def media(*ags, **kws):
+    nome.write(Element("aae").element.value)
+
+    notas_port = [float(Element(x).element.value.replace(',','.')) for x in ["aaa","baa","caa","daa"] if any(Element(x).element.value)]
+    port.write(sum(notas_port))
+
+    notas_mat = [float(Element(x).element.value.replace(',','.')) for x in ["aab","bab","cab","dab"] if any(Element(x).element.value)]
+    mat.write(sum(notas_mat))
+    
+    notas_hist = [float(Element(x).element.value.replace(',','.')) for x in ["aac","bac","cac","dac"] if any(Element(x).element.value)]
+    hist.write(sum(notas_hist))
+
+    notas_ing = [float(Element(x).element.value.replace(',','.')) for x in ["aad","bad","cad","dad"] if any(Element(x).element.value)]
+    ing.write(sum(notas_ing))
+
+    </py-script>
+</body>
+</html>
